@@ -1,0 +1,1 @@
+alert("ADD JS TRONG SKIN CŨNG THÀNH CÔNG CMNR!");

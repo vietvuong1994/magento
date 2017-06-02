@@ -1,0 +1,1 @@
+alert('Add JS thành công cmnr! Ha ha ha!');

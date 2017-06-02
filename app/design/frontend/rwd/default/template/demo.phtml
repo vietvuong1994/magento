@@ -1,0 +1,15 @@
+<body>
+    <h1 class="demoblock">BLOCK DEMO</h1>
+    <h2><?php echo $this->getData('ho_ten') ?></h2>
+</body>
+
+<?php 
+	$product = Mage::getModel('catalog/product')->load(1500);
+	print_r($product->debug());
+	echo "<br>";
+	echo $product->getCreatedAt()."<br>";
+	echo $product->getIsInStock()."<br><br>";
+	// $new_name = "HAHAHAAH";
+	// $product->setName($new_name);
+	// echo $product->getName();
+?> 

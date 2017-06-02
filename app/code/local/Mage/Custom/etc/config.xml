@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mage_Custom>
+            <version>0.1.0</version>    <!-- Version of module -->
+        </Mage_Custom>
+    </modules>
+    <frontend>
+        <routers>
+            <Custom>
+                <use>standard</use>
+                <args>
+                    <module>Mage_Custom</module>
+                    <frontName>Custom</frontName>
+                </args>
+            </Custom>
+        </routers>
+         <layout>
+            <updates>
+                <Custom>
+                    <file>Custom.xml</file> <!-- Our layout file name-->
+                </Custom>
+            </updates>
+         </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <Custom>
+                <class>Mage_Custom_Block</class>
+            </Custom>
+        </blocks>
+    </global>
+</config>

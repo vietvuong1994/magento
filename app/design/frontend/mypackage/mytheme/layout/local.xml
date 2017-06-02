@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+	    <!-- <remove name="demo" /> -->
+		<reference name="footer">
+		    <action method="unsetChild">
+		        <alias>footer.newsletter</alias>
+		    </action>
+		    <action method="unsetChild">
+		        <alias>store_switcher</alias>
+		    </action>
+		</reference>
+		<reference name="content">
+		    <action method="insert">
+		        <block>footer.newsletter</block>
+		    </action>
+		    <action method="insert">
+		        <block>store_switcher</block>
+		    </action>
+		</reference>
+		
+		
+		
+		<reference name="head">
+			<action method="addItem"><type>skin_js</type><name>js/tether.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/jquery-3.2.0.min.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>js/noConflict.js</name></action>
+			<action method="addItem"><type>skin_css</type><name>css/bootstrap.min.css</name></action>
+			<action method="addItem"><type>skin_css</type><name>css/font-awesome.min.css</name></action>
+			<action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Lato</href></action>
+		</reference>
+		<reference name="footer">
+		    <remove name="bottom.container"></remove>
+		    <remove name="footer_links"></remove>
+		    <remove name="footer_links2"></remove>
+		    <remove name="cms_footer_links_sm"></remove>
+		    <remove name="cms_footer_links"></remove>
+		    <block type="core/template" name="footer_logo" template="page/html/footer/footer-logo.phtml"/>
+		    <block type="core/template" name="category" template="page/html/footer/category.phtml"/>
+		    <block type="core/template" name="information" template="page/html/footer/information.phtml"/>
+		    <block type="core/template" name="my_account" template="page/html/footer/my_account.phtml"/>
+		    <block type="core/template" name="contact_us" template="page/html/footer/contact_us.phtml"/>
+		</reference>
+		<reference name="header">
+			<block type="page/template_links" name="leftmenu" template="page/html/topmenu/leftmenu.phtml"/>
+		    <block type="core/template" name="rightmenu" template="page/html/topmenu/rightmenu.phtml"/>
+		</reference>
+		<reference name="leftmenu">
+			<action method="addLink" translate="label title" module="customer"><label>My account</label><url helper="customer/getAccountUrl"/><title>My account</title><prepare/><urlParams/></action>
+            <action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
+		</reference>
+	</default> 
+</layout>

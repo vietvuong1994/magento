@@ -1,11 +1,13 @@
 <div class="footerlist information col-12 col-sm-6 col-lg-2">
     <p>INFORMATION</p>
     <ul>
-        <li><a href=""><i class="fa fa-caret-right"></i>About Us</a></li>
-        <li><a href=""><i class="fa fa-caret-right"></i>Delivery Information</a></li>
-        <li><a href=""><i class="fa fa-caret-right"></i>Privacy Policy</a></li>
-        <li><a href=""><i class="fa fa-caret-right"></i>Terms & Conditions</a></li>
-        <li><a href=""><i class="fa fa-caret-right"></i>Help</a></li>
-        <li><a href=""><i class="fa fa-caret-right"></i>Location</a></li>
+        <?php $_links = $this->getLinks(); ?>
+		<?php foreach($_links as $_link): ?>
+			<?php if ($_link instanceof Mage_Core_Block_Abstract):?>
+				<?php echo $_link->toHtml() ?>
+			<?php else: ?>
+				<li><a href="<?php echo $_link->getUrl() ?>" title="<?php echo $_link->getTitle() ?>" <?php echo $_link->getAParams() ?>><i class="fa fa-caret-right"></i><?php echo $_link->getLabel() ?></a><?php echo $_link->getAfterText() ?></li>
+			<?php endif;?>
+		<?php endforeach; ?>
     </ul>
 </div>

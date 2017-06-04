@@ -2710,17 +2710,17 @@ li.level0 ul {
   padding-left: 0px !important;
 }
 
-li.level1 {
+ol.nav-primary li.level1 {
   text-align: center;
 }
-li.level1 a {
+ol.nav-primary li.level1 a {
   text-decoration: none;
   color: white;
-  padding: 17px 15px;
+  padding: 17px 15px !important;
   display: block;
   background-color: #272C33;
 }
-li.level1 a:hover {
+ol.nav-primary li.level1 a:hover {
   color: white;
   background-color: #fb758d;
 }
@@ -2778,7 +2778,7 @@ li.level1 a:hover {
 #search_mini_form div.input-box span.border-search select.search-which {
   display: block;
   top: 1.5px;
-  padding: 9.4px 7px;
+  padding: 9px 7px;
   width: 93px;
   position: absolute;
   right: 60px;
@@ -2854,6 +2854,29 @@ div.header-language-background ul.list.show {
   width: 100%;
 }
 
+div.dropdown-content.dr3 a {
+  position: relative;
+  padding: 10px 10px 10px 22px;
+}
+div.dropdown-content.dr3 a img {
+  width: 19px;
+  margin-right: 2px;
+  float: left;
+  position: absolute;
+  bottom: 14px;
+  right: 55%;
+}
+
+@media only screen and (min-width: 844px) {
+  div.dropdown-content.dr3 a img, button#dr3 img {
+    right: 68px !important;
+  }
+}
+@media only screen and (min-width: 560px) and (max-width: 843px) {
+  div.dropdown-content.dr3 a img, button#dr3 img {
+    right: 53% !important;
+  }
+}
 @media only screen and (min-width: 771px) {
   .nav-primary {
     margin-top: 0px !important;
@@ -2871,7 +2894,15 @@ div.header-language-background ul.list.show {
     top: 41px;
     z-index: 1;
     background-color: #23282F;
-    width: 125px;
+  }
+  div.header-language-background ul.list li.dropdown div.dropdown-content.dr3 {
+    width: 100px;
+  }
+  div.header-language-background ul.list li.dropdown div.dropdown-content.dr2 {
+    width: 74px;
+  }
+  div.header-language-background ul.list li.dropdown div.dropdown-content.dr1 {
+    width: 118px;
   }
   div.header-language-background ul.list li.dropdown div.dropdown-content.left {
     left: 0;
@@ -2941,6 +2972,28 @@ ul.list li.dropdown button.dropbtn {
 }
 ul.list li.dropdown button.dropbtn:hover {
   background-color: #fb758d;
+}
+ul.list li.dropdown i.flag {
+  font-family: FontAwesome;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+}
+ul.list li.dropdown div.dropdown-content i.flag {
+  margin-right: 4px;
+}
+
+button#dr3 {
+  position: relative;
+  padding-left: 30px;
+}
+button#dr3 img {
+  width: 19px;
+  margin-right: 2px;
+  float: left;
+  position: absolute;
+  right: 55%;
+  bottom: 14px;
 }
 
 div.dropdown-content {
@@ -3056,32 +3109,30 @@ a.skip-link.skip-nav, a.skip-link.skip-search {
   display: none;
 }
 
+div.header-language-container.row div.currency-switcher, div.header-language-container.row div.form-language {
+  width: 200px;
+  overflow: hidden;
+  height: auto;
+  position: relative;
+  display: block;
+}
 div.header-language-container.row div.currency-switcher label, div.header-language-container.row div.form-language label {
   display: none;
 }
 div.header-language-container.row div.currency-switcher select, div.header-language-container.row div.form-language select {
-  color: white;
+  padding: 10px;
+  border: 0;
+  font-size: 15px;
+  width: 200px;
   background-color: #272C33;
-  border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  position: relative;
-}
-div.header-language-container.row div.currency-switcher select:after, div.header-language-container.row div.form-language select:after {
-  content: "\f107";
-  font-family: FontAwesome;
-  padding: 12px 8px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: red;
-  z-index: 1;
-  text-align: center;
-  width: 10%;
-  height: 100%;
-  pointer-events: none;
-  box-sizing: border-box;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
 }
 div.header-language-container.row div.currency-switcher select:hover, div.header-language-container.row div.form-language select:hover {
   background-color: #fb758d;
@@ -3092,6 +3143,18 @@ div.header-language-container.row div.currency-switcher select:hover option, div
 div.header-language-container.row div.currency-switcher select:hover option:hover, div.header-language-container.row div.form-language select:hover option:hover {
   background-color: #fb758d;
 }
+div.header-language-container.row div.currency-switcher:after, div.header-language-container.row div.form-language:after {
+  content: "\f107 ";
+  font-family: FontAwesome;
+  color: white;
+  position: absolute;
+  right: 0;
+  top: 12px;
+  z-index: 1;
+  width: 10%;
+  height: 100%;
+  pointer-events: none;
+}
 
 @media only screen and (min-width: 768px) {
   ul.left.list {
@@ -3100,6 +3163,30 @@ div.header-language-container.row div.currency-switcher select:hover option:hove
   ul.left.list li {
     float: left;
     width: auto;
+  }
+  ul.left.list li.checkout, ul.left.list li.first.last {
+    position: relative;
+  }
+  ul.left.list li.checkout a, ul.left.list li.first.last a {
+    padding: 10px 14px 10px 25px;
+  }
+  ul.left.list li.checkout:before, ul.left.list li.first.last:before {
+    font-family: FontAwesome;
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    left: 8px;
+    top: 12px;
+    z-index: 1;
+    width: 10%;
+    height: 100%;
+    pointer-events: none;
+  }
+  ul.left.list li.checkout:before {
+    content: "\f01b";
+  }
+  ul.left.list li.first.last:before {
+    content: "\f004";
   }
 
   ul.right.list {
@@ -3139,10 +3226,23 @@ div.header-language-container.row div.currency-switcher select:hover option:hove
   #nav .nav-primary li.level0 li {
     padding: 0px 0px !important;
   }
-  #nav .nav-primary li.level1 a {
-    padding: 0px 0px !important;
-  }
 }
+div.main-container {
+  font-family: "Lato", sans-serif;
+}
+div.main-container button, div.main-container a.button {
+  background-color: #272C33;
+}
+div.main-container button span, div.main-container a.button span {
+  color: white !important;
+}
+div.main-container button:hover, div.main-container a.button:hover {
+  background-color: #fb758d;
+}
+div.main-container span {
+  color: #fb758d !important;
+}
+
 /* ============================================ *
  * Nav - Skip Link
  * ============================================ */

@@ -1,18 +1,4 @@
 <ul class="col-md-5 col-lg-3 right list">
-    <li class="dropdown">
-        <button class="dropbtn" id="dr2"><i class="fa fa-usd"></i><span>USD</span><i class="fa fa-angle-down"></i></button>
-        <div class="dropdown-content right dr2">
-            <a href="#">Link a</a>
-            <a href="#">Link b</a>
-            <a href="#">Link c</a>
-        </div>
-    </li>
-    <li class="dropdown">
-        <button class="dropbtn" id="dr3"><i class="i_country"></i><span>English</span><i class="fa fa-angle-down"></i></button>
-        <div class="dropdown-content right dr3">
-            <a href="#">Link e</a>
-            <a href="#">Link f</a>
-            <a href="#">Link g</a>
-        </div>
-    </li>
+    <?php echo $this->getChildHtml('store_currency') ?>
+    <?php echo $this->getChildHtml('store_language') ?>
 </ul>

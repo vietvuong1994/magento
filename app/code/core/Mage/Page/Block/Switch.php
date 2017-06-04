@@ -50,6 +50,11 @@ class Mage_Page_Block_Switch extends Mage_Core_Block_Template
         return Mage::app()->getStore()->getId();
     }
 
+    public function getCurrentStoreName()
+    {
+        return Mage::app()->getStore()->getName();
+    }
+
     public function getRawGroups()
     {
         if (!$this->hasData('raw_groups')) {

@@ -112,4 +112,15 @@ class Mage_Directory_Block_Currency extends Mage_Core_Block_Template
 
         return $this->_getData('current_currency_code');
     }
+
+    public function getCurrentCurrencySymbol()
+    {
+        $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode();
+        $currency_symbol = Mage::app()->getLocale()->currency($currency_code)->getSymbol();
+        return $currency_symbol;
+    }
+    public function getCurrencySymbol($code)
+    {
+        return Mage::app()->getLocale()->currency($code)->getSymbol();
+    }
 }

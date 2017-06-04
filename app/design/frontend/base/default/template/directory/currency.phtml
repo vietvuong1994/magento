@@ -32,6 +32,7 @@
  */
 ?>
 <?php if($this->getCurrencyCount()>1): ?>
+<a><?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol(); ?></a>
 <div class="block block-currency">
     <div class="block-title">
         <strong><span><?php echo $this->__('Select Your Currency') ?></span></strong>

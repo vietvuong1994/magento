@@ -18,9 +18,7 @@
 		        <block>store_switcher</block>
 		    </action>
 		</reference>
-		
-		
-		
+
 		<reference name="head">
 			<action method="addItem"><type>skin_js</type><name>js/tether.min.js</name></action>
 			<action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>
@@ -37,18 +35,86 @@
 		    <remove name="cms_footer_links_sm"></remove>
 		    <remove name="cms_footer_links"></remove>
 		    <block type="core/template" name="footer_logo" template="page/html/footer/footer-logo.phtml"/>
-		    <block type="core/template" name="category" template="page/html/footer/category.phtml"/>
-		    <block type="core/template" name="information" template="page/html/footer/information.phtml"/>
-		    <block type="core/template" name="my_account" template="page/html/footer/my_account.phtml"/>
+		    <block type="page/template_links" name="category" template="page/html/footer/category.phtml"/>
+		    <block type="page/template_links" name="information" template="page/html/footer/information.phtml"/>
+		    <block type="page/template_links" name="my_account" template="page/html/footer/my_account.phtml"/>
 		    <block type="core/template" name="contact_us" template="page/html/footer/contact_us.phtml"/>
 		</reference>
 		<reference name="header">
-			<block type="page/template_links" name="leftmenu" template="page/html/topmenu/leftmenu.phtml"/>
+			<block type="core/template" name="leftmenu" template="page/html/topmenu/leftmenu.phtml"/>
 		    <block type="core/template" name="rightmenu" template="page/html/topmenu/rightmenu.phtml"/>
 		</reference>
-		<reference name="leftmenu">
-			<action method="addLink" translate="label title" module="customer"><label>My account</label><url helper="customer/getAccountUrl"/><title>My account</title><prepare/><urlParams/></action>
-            <action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
+		<reference name="category">
+			<action method="addLink" translate="label title"><label>Women</label><url>women</url><title>Women</title><prepare>true</prepare><position>1</position></action>
+			<action method="addLink" translate="label title"><label>Men Sale</label><url>man_sale</url><title>Men Sale</title><prepare>true</prepare><position>2</position></action>
+			<action method="addLink" translate="label title"><label>Jewellery</label><url>jewellery</url><title>Jewellery</title><prepare>true</prepare><position>3</position></action>
+			<action method="addLink" translate="label title"><label>Accessories</label><url>accessories</url><title>Accessories</title><prepare>true</prepare><position>4</position></action>
+			<action method="addLink" translate="label title"><label>Sunglass</label><url>sunglass</url><title>Sunglass</title><prepare>true</prepare><position>5</position></action>
+			<action method="addLink" translate="label title"><label>Site map</label><url>sitemap</url><title>Site map</title><prepare>true</prepare><position>6</position></action>
 		</reference>
+		<reference name="information">
+			<action method="addLink" translate="label title"><label>About Us</label><url>about-magento-demo-store</url><title>About Us</title><prepare>true</prepare><position>1</position></action>
+			<action method="addLink" translate="label title"><label>Delivery Information</label><url>delivery_information</url><title>Delivery Information</title><prepare>true</prepare><position>2</position></action>
+			<action method="addLink" translate="label title"><label>Privacy Policy</label><url>privacy_policy</url><title>Privacy Policy</title><prepare>true</prepare><position>3</position></action>
+			<action method="addLink" translate="label title"><label>Terms Conditions</label><url>terms_conditions</url><title>Terms Conditions</title><prepare>true</prepare><position>4</position></action>
+			<action method="addLink" translate="label title"><label>Help</label><url>help</url><title>Help</title><prepare>true</prepare><position>5</position></action>
+			<action method="addLink" translate="label title"><label>Location</label><url>location</url><title>Location</title><prepare>true</prepare><position>6</position></action>
+		</reference>
+		<reference name="my_account">
+			<action method="addLink" translate="label title"><label>My Account</label><url>my_account</url><title>My Account</title><prepare>true</prepare><position>1</position></action>
+			<action method="addLink" translate="label title"><label>Order History</label><url>order_history</url><title>Order History</title><prepare>true</prepare><position>2</position></action>
+			<action method="addLink" translate="label title"><label>Wish List</label><url>wish_list</url><title>Wish List</title><prepare>true</prepare><position>3</position></action>
+			<action method="addLink" translate="label title"><label>Newsletter</label><url>newsletter</url><title>Newsletter</title><prepare>true</prepare><position>4</position></action>
+			<action method="addLink" translate="label title"><label>Cart</label><url>cart</url><title>Cart</title><prepare>true</prepare><position>5</position></action>
+			<action method="addLink" translate="label title"><label>CheckOut</label><url>checkout</url><title>CheckOut</title><prepare>true</prepare><position>6</position></action>
+		</reference>
+		<reference name="leftmenu">
+            <block type="page/template_links" name="checkout-block" template="page/html/topmenu/checkout.phtml"/>
+            <block type="page/template_links" name="wishlist-block" template="page/html/topmenu/wishlist.phtml"/>
+            <block type="page/template_links" name="account-block" template="page/html/topmenu/account.phtml"/>
+            <block type="page/template_links" name="compare-block" template="page/html/topmenu/compare.phtml"/>
+		</reference>
+		<reference name="leftmenu">
+			<reference name="checkout-block">
+				<block type="checkout/links" name="checkout_link">
+	                <action method="addCheckoutLink"></action>
+	            </block>
+	        </reference>
+	        <reference name="wishlist-block">
+	        	<block type="wishlist/links" name="wishlist_link" />
+				<action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
+	        </reference>
+			<reference name="account-block">    
+				<action method="addLink" translate="label title" module="customer"><label>Setting</label><url helper="customer/getAccountUrl"/><title>Setting</title><prepare/><urlParams/></action>
+				<action method="addLink" translate="label title before_text" module="customer"><label>Register</label><url helper="customer/getRegisterUrl" /><title>Register</title><prepare/><urlParams/><position>100</position><li/><a/></action>
+			</reference> 
+			<reference name="compare-block">
+	        	<action method="addLink" translate="label title"><label>Compare</label><url>Compare</url><title>Compare</title><prepare>true</prepare></action>
+	        </reference>
+		</reference> 
+		<reference name="rightmenu">
+	    	<block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
+	    	<block type="directory/currency" name="store_currency" as="store_currency" template="directory/currency.phtml"/>
+	    </reference>
+	    <reference name="footer">
+	    	<remove name="footer_currency"/>
+	    </reference>
+	    <reference name="header">
+	    	<remove name="top.links"/>
+	    </reference>
 	</default> 
+	<customer_logged_in>
+        <reference name="account-block">
+            <action method="removeLinkByUrl"><url helper="customer/getRegisterUrl" /></action>
+            <action method="addLink" translate="label title" module="customer"><label>Log Out</label><url helper="customer/getLogoutUrl"/><title>Log Out</title><prepare/><urlParams/><position>100</position></action>
+        </reference>
+    </customer_logged_in>
+
+
+    <customer_logged_out>
+        <reference name="account-block">
+            <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
+        </reference>
+        <remove name="reorder"></remove>
+    </customer_logged_out>
 </layout>

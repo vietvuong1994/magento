@@ -2762,7 +2762,7 @@ ol.nav-primary li.level1 a:hover {
 }
 #search_mini_form div.input-box span.border-search {
   display: block;
-  max-width: 85%;
+  max-width: 90%;
   border: 1px solid black;
 }
 #search_mini_form div.input-box span.border-search input#search {
@@ -2789,6 +2789,7 @@ ol.nav-primary li.level1 a:hover {
   font-weight: 400;
   font-family: "Lato", sans-serif;
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   border: none;
 }
@@ -2867,12 +2868,12 @@ div.dropdown-content.dr3 a img {
   right: 55%;
 }
 
-@media only screen and (min-width: 844px) {
+@media only screen and (min-width: 772px) {
   div.dropdown-content.dr3 a img, button#dr3 img {
     right: 68px !important;
   }
 }
-@media only screen and (min-width: 560px) and (max-width: 843px) {
+@media only screen and (min-width: 560px) and (max-width: 771px) {
   div.dropdown-content.dr3 a img, button#dr3 img {
     right: 53% !important;
   }
@@ -3228,18 +3229,19 @@ div.header-language-container.row div.currency-switcher:after, div.header-langua
   }
 }
 div.main-container {
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 div.main-container button, div.main-container a.button {
-  background-color: #272C33;
+  background-color: #272C33 !important;
+  color: white !important;
 }
 div.main-container button span, div.main-container a.button span {
   color: white !important;
 }
 div.main-container button:hover, div.main-container a.button:hover {
-  background-color: #fb758d;
+  background-color: #fb758d !important;
 }
-div.main-container span {
+div.main-container span, div.main-container a {
   color: #fb758d !important;
 }
 

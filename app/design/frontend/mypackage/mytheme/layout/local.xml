@@ -102,6 +102,12 @@
 	    <reference name="header">
 	    	<remove name="top.links"/>
 	    </reference>
+	    <reference name="catalog.topnav.renderer">
+	    	<block type="page/template_links" name="home-block" template="page/html/topmenu/home.phtml"/>
+	    </reference>
+	    <reference name="home-block">
+	    	<action method="addLink" translate="label title"><label>Home</label><url></url><title>Home</title><prepare>true</prepare></action>
+	    </reference>
 	</default> 
 	<customer_logged_in>
         <reference name="account-block">

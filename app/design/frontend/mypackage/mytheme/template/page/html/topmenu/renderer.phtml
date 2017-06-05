@@ -39,9 +39,8 @@ $childrenCount = $children->count();
 
 $parentPositionClass = $menuTree->getPositionClass();
 $itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
-$html .= '<li class="level0">';
-$html .= '<a class="level0" href=""><i class="fa fa-home"></i><span>Home</span></a>';
-$html .= '</a>';
+$html .= $this->getChildHtml('home-block');
+
 foreach ($children as $child) {
     $child->setLevel($childLevel);
     $child->setIsFirst($counter == 1);

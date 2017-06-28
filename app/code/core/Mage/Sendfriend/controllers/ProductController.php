@@ -171,7 +171,7 @@ class Mage_Sendfriend_ProductController extends Mage_Core_Controller_Front_Actio
         $model->setSender($this->getRequest()->getPost('sender'));
         $model->setRecipients($this->getRequest()->getPost('recipients'));
         $model->setProduct($product);
-
+        
         try {
             $validate = $model->validate();
             if ($validate === true) {

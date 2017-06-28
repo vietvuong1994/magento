@@ -246,7 +246,6 @@ class Mage_SalesRule_Model_Observer
     {
         // @var Varien_Object
         $attributesTransfer = $observer->getEvent()->getAttributes();
-
         $attributes = Mage::getResourceModel('salesrule/rule')
             ->getActiveAttributes(
                 Mage::app()->getWebsite()->getId(),
@@ -270,7 +269,6 @@ class Mage_SalesRule_Model_Observer
     {
         $order = $observer->getOrder();
         $couponCode = $order->getCouponCode();
-
         if (empty($couponCode)) {
             return $this;
         }

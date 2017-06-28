@@ -166,14 +166,19 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      */
     protected function _canProcessRule($rule, $address)
     {
+       
         if ($rule->hasIsValidForAddress($address) && !$address->isObjectNew()) {
+
             return $rule->getIsValidForAddress($address);
         }
 
         /**
          * check per coupon usage limit
          */
+        //echo($rule->getCouponType());
+        
         if ($rule->getCouponType() != Mage_SalesRule_Model_Rule::COUPON_TYPE_NO_COUPON) {
+            //die('kkkkk');
             $couponCode = $address->getQuote()->getCouponCode();
             if (strlen($couponCode)) {
                 $coupon = Mage::getModel('salesrule/coupon');
@@ -296,11 +301,13 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
      */
     public function process(Mage_Sales_Model_Quote_Item_Abstract $item)
     {
+
         $item->setDiscountAmount(0);
         $item->setBaseDiscountAmount(0);
         $item->setDiscountPercent(0);
         $quote      = $item->getQuote();
         $address    = $this->_getAddress($item);
+
 
         $itemPrice              = $this->_getItemPrice($item);
         $baseItemPrice          = $this->_getItemBasePrice($item);
@@ -310,20 +317,20 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
         if ($itemPrice < 0) {
             return $this;
         }
-
         $appliedRuleIds = array();
         $this->_stopFurtherRules = false;
         foreach ($this->_getRules() as $rule) {
 
             /* @var $rule Mage_SalesRule_Model_Rule */
+            //echo $rule->getCouponType();
+
             if (!$this->_canProcessRule($rule, $address)) {
                 continue;
             }
-
+            //****************************
             if (!$rule->getActions()->validate($item)) {
                 continue;
             }
-
             $qty = $this->_getItemQty($item, $rule);
             $rulePercent = min(100, $rule->getDiscountAmount());
 
@@ -332,18 +339,22 @@ class Mage_SalesRule_Model_Validator extends Mage_Core_Model_Abstract
             //discount for original price
             $originalDiscountAmount = 0;
             $baseOriginalDiscountAmount = 0;
-
             switch ($rule->getSimpleAction()) {
                 case Mage_SalesRule_Model_Rule::TO_PERCENT_ACTION:
                     $rulePercent = max(0, 100-$rule->getDiscountAmount());
                 //no break;
                 case Mage_SalesRule_Model_Rule::BY_PERCENT_ACTION:
+                    //die('aaas');
                     $step = $rule->getDiscountStep();
                     if ($step) {
                         $qty = floor($qty/$step)*$step;
                     }
                     $_rulePct = $rulePercent/100;
-                    $discountAmount    = ($qty * $itemPrice - $item->getDiscountAmount()) * $_rulePct;
+                   
+                    $discountAmount = ($qty * $itemPrice - $item->getDiscountAmount()) * $_rulePct;
+                    
+                    //die($discountAmount);
+
                     $baseDiscountAmount = ($qty * $baseItemPrice - $item->getBaseDiscountAmount()) * $_rulePct;
                     //get discount for original price
                     $originalDiscountAmount    = ($qty * $itemOriginalPrice - $item->getDiscountAmount()) * $_rulePct;

@@ -116,11 +116,17 @@
         </reference>
     </customer_logged_in>
 
-
     <customer_logged_out>
         <reference name="account-block">
             <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
         </reference>
         <remove name="reorder"></remove>
     </customer_logged_out>
+
+    <customer_account_index>
+		<reference name="customer_account_dashboard">
+			<block type="core/template" name="customer_account_points" as="points"
+			template="rewardpoints/dashboard_points.phtml"/>
+		</reference>
+	</customer_account_index>
 </layout>

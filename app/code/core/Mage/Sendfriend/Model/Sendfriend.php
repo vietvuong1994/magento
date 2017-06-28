@@ -134,7 +134,6 @@ class Mage_Sendfriend_Model_Sendfriend extends Mage_Core_Model_Abstract
             'area'  => 'frontend',
             'store' => Mage::app()->getStore()->getId()
         ));
-
         foreach ($this->getRecipients()->getEmails() as $k => $email) {
             $name = $this->getRecipients()->getNames($k);
             $mailTemplate->sendTransactional(

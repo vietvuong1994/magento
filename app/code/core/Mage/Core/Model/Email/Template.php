@@ -188,6 +188,7 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
         $templateText = preg_replace('#\{\*.*\*\}#suU', '', $templateText);
 
         $this->setTemplateText($templateText);
+
         $this->setId($templateId);
 
         return $this;
